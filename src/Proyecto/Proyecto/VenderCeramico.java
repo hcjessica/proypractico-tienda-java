@@ -137,8 +137,7 @@ public class VenderCeramico extends JInternalFrame implements ActionListener{
 		}
 	}
 	
-	protected void actionPerformedVenderCeramicos(int index, String valorElemento) {
-		
+	protected void actionPerformedVenderCeramicos(int index, String valorElemento) {		
 		if(validarCamposVender()) {
 			++contador;
 			++Tienda.contadorVenta;
@@ -165,12 +164,15 @@ public class VenderCeramico extends JInternalFrame implements ActionListener{
 			double importeDscto = Math.round(((importeCompra * porcentaje) / 100) * 100.0) / 100.0;
 			double importePagar = Math.round((importeCompra - importeDscto)  * 100.0) / 100.0; 	
 			
-			Tienda.importeTotalGeneralAcumulado += importePagar;
+			//guardando información			
+			guardarVenta(index, valorElemento, cantidad, importeCompra, Tienda.contadorVenta);
+			
+			Tienda.importeTotalGeneralAcumulado += importeCompra;
 			
 			JOptionPane.showMessageDialog(this, "Se ha guardado la venta del modelo " + valorElemento);
 			
 			txtAreaBoleta.setText("");
-			txtAreaBoleta.setText("BOLETA DE VENTA N° 000" + contador + "\n");
+			txtAreaBoleta.setText("BOLETA DE VENTA N° 000" + Tienda.contadorVenta + "\n");
 			txtAreaBoleta.append ("\n");
 			txtAreaBoleta.append ("Modelo               : " + valorElemento + "\n");
 			txtAreaBoleta.append ("Precio               : S/. " + txtPrecio.getText() + "\n");
@@ -185,10 +187,11 @@ public class VenderCeramico extends JInternalFrame implements ActionListener{
 		}
 		
 		if(contador == 5){
-			double porcentajeCuotaDiaria = Math.round(((Tienda.importeTotalGeneralAcumulado * 100) / Tienda.cuotaDiaria) * 100.0) / 100.0 ;
+			double porcentajeCuotaDiaria = Math.round(((Tienda.importeTotalGeneralAcumulado * 100) / Tienda.cuotaDiaria) * 100.0) / 100.0;
+			
 			JOptionPane.showMessageDialog(this, 
 			"Venta Nro. "+Tienda.contadorVenta+"\n"+
-			"Importe total general acumulado: S/. " + Tienda.importeTotalGeneralAcumulado +"\n"+
+			"Importe total general acumulado: S/. " + (Math.round(Tienda.importeTotalGeneralAcumulado  * 100.0) / 100.0) +"\n"+
 			"Porcentaje de la cuota diaria: " + porcentajeCuotaDiaria + "%",
 			"Avance de ventas", JOptionPane.INFORMATION_MESSAGE);
 			
@@ -199,11 +202,108 @@ public class VenderCeramico extends JInternalFrame implements ActionListener{
 	protected boolean validarCamposVender() {
 		boolean estado = false;
 		if(!Tienda.isInteger(txtCantidad.getText())) {
-			JOptionPane.showMessageDialog(this, "Se ha ingresado un valor no válido en campo precio");
+			JOptionPane.showMessageDialog(this, "Se ha ingresado un valor no válido en campo cantidad");
 		}else {
 			estado = true;
 		}
 		
 		return estado;
+	}
+	
+	protected void guardarVenta(int index, String valorElemento, int cantidad, double importeCompra, int contadorVenta) {
+		switch(contadorVenta) {
+			case 1:
+				Tienda.indexModeloVenta1 = index;
+				Tienda.valorModeloVenta1 = valorElemento;
+				Tienda.cantidadVenta1 = cantidad;
+				Tienda.importeTotalVenta1 = importeCompra;
+				break;
+			case 2:
+				Tienda.indexModeloVenta2 = index;
+				Tienda.valorModeloVenta2 = valorElemento;
+				Tienda.cantidadVenta2 = cantidad;
+				Tienda.importeTotalVenta2 = importeCompra;		
+				break;
+			case 3:
+				Tienda.indexModeloVenta3 = index;
+				Tienda.valorModeloVenta3 = valorElemento;
+				Tienda.cantidadVenta3 = cantidad;
+				Tienda.importeTotalVenta3 = importeCompra;	
+				break;
+			case 4:
+				Tienda.indexModeloVenta4 = index;
+				Tienda.valorModeloVenta4 = valorElemento;
+				Tienda.cantidadVenta4 = cantidad;
+				Tienda.importeTotalVenta4 = importeCompra;	
+				break;
+			case 5:
+				Tienda.indexModeloVenta5 = index;
+				Tienda.valorModeloVenta5 = valorElemento;
+				Tienda.cantidadVenta5 = cantidad;
+				Tienda.importeTotalVenta5 = importeCompra;	
+				break;
+			case 6:
+				Tienda.indexModeloVenta6 = index;
+				Tienda.valorModeloVenta6 = valorElemento;
+				Tienda.cantidadVenta6 = cantidad;
+				Tienda.importeTotalVenta6 = importeCompra;
+				break;
+			case 7:
+				Tienda.indexModeloVenta7 = index;
+				Tienda.valorModeloVenta7 = valorElemento;
+				Tienda.cantidadVenta7 = cantidad;
+				Tienda.importeTotalVenta7 = importeCompra;
+				break;
+			case 8:
+				Tienda.indexModeloVenta8 = index;
+				Tienda.valorModeloVenta8 = valorElemento;
+				Tienda.cantidadVenta8 = cantidad;
+				Tienda.importeTotalVenta8 = importeCompra;		
+				break;
+			case 9:
+				Tienda.indexModeloVenta9 = index;
+				Tienda.valorModeloVenta9 = valorElemento;
+				Tienda.cantidadVenta9 = cantidad;
+				Tienda.importeTotalVenta9 = importeCompra;	
+				break;
+			case 10:
+				Tienda.indexModeloVenta10 = index;
+				Tienda.valorModeloVenta10 = valorElemento;
+				Tienda.cantidadVenta10 = cantidad;
+				Tienda.importeTotalVenta10 = importeCompra;	
+				break;
+			case 11:
+				Tienda.indexModeloVenta11 = index;
+				Tienda.valorModeloVenta11 = valorElemento;
+				Tienda.cantidadVenta11 = cantidad;
+				Tienda.importeTotalVenta11 = importeCompra;		
+				break;
+			case 12:
+				Tienda.indexModeloVenta12 = index;
+				Tienda.valorModeloVenta12 = valorElemento;
+				Tienda.cantidadVenta12 = cantidad;
+				Tienda.importeTotalVenta12 = importeCompra;	
+				break;
+			case 13:
+				Tienda.indexModeloVenta13 = index;
+				Tienda.valorModeloVenta13 = valorElemento;
+				Tienda.cantidadVenta13 = cantidad;
+				Tienda.importeTotalVenta13 = importeCompra;	
+				break;
+			case 14:
+				Tienda.indexModeloVenta14 = index;
+				Tienda.valorModeloVenta14 = valorElemento;
+				Tienda.cantidadVenta14 = cantidad;
+				Tienda.importeTotalVenta14 = importeCompra;
+				break;
+			case 15:
+				Tienda.indexModeloVenta15 = index;
+				Tienda.valorModeloVenta15 = valorElemento;
+				Tienda.cantidadVenta15 = cantidad;
+				Tienda.importeTotalVenta15 = importeCompra;	
+				break;
+			default:
+				break;
+		}
 	}
 }

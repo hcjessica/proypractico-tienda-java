@@ -1,12 +1,9 @@
 package Proyecto;
 
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -18,7 +15,6 @@ public class DialogoConfirmacion extends JDialog implements ActionListener{
 	private JButton btnSi;
 	private JButton btnNo;
 	private JLabel lblDescripcion;
-	private JLabel lblIcono;
 
   /* Constructor que recibe el JFrame DialogoConfirmacion 
    * como parent, 
@@ -34,15 +30,6 @@ public class DialogoConfirmacion extends JDialog implements ActionListener{
 	setLayout(null);	 
 	setResizable(false);
     setTitle("Mensaje de confirmación");		 
-
-    //Etiqueta
-    lblIcono = new JLabel();
-    
-    ImageIcon imgIcon = new ImageIcon(getClass().getResource("ic_confirmacion.png"));
-    //escala de imagen sin perder la calidad
-    Image imgEscalada = imgIcon.getImage().getScaledInstance(400,410, Image.SCALE_SMOOTH);
-    Icon iconoEscalado = new ImageIcon(imgEscalada);
-    lblIcono.setIcon(iconoEscalado);
 
     lblDescripcion = new JLabel(descripcion);
 	lblDescripcion.setBounds(50,20,150,20);

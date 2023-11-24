@@ -72,11 +72,37 @@ public class Tienda extends JFrame implements ActionListener {
 	public static int contadorVenta = 0;
 	public static double importeTotalGeneralAcumulado = 0.0;
 	
-	public static int indexModeloVenta0 = 0;
-	public static String valorModeloVenta0 = "";
-	public static int cantidadVenta0 = 0;
-	public static double importeTotalVenta0 = 0;
+	//información de ventas modelo0
+	public static int cantidadVentasModelo0 = 0;
+	public static int cantidadCajasVendidasModelo0 = 0;
+	public static double importeTotalVendidoModelo0 = 0;
+	public static double aporteCuotaDiariaModelo0 = 0;
 	
+	//información de ventas modelo1
+	public static int cantidadVentasModelo1 = 0;
+	public static int cantidadCajasVendidasModelo1 = 0;
+	public static double importeTotalVendidoModelo1 = 0;
+	public static double aporteCuotaDiariaModelo1 = 0;
+	
+	//información de ventas modelo2
+	public static int cantidadVentasModelo2 = 0;
+	public static int cantidadCajasVendidasModelo2 = 0;
+	public static double importeTotalVendidoModelo2 = 0;
+	public static double aporteCuotaDiariaModelo2 = 0;
+	
+	//información de ventas modelo3
+	public static int cantidadVentasModelo3 = 0;
+	public static int cantidadCajasVendidasModelo3 = 0;
+	public static double importeTotalVendidoModelo3 = 0;
+	public static double aporteCuotaDiariaModelo3 = 0;
+	
+	//información de ventas modelo4
+	public static int cantidadVentasModelo4 = 0;
+	public static int cantidadCajasVendidasModelo4 = 0;
+	public static double importeTotalVendidoModelo4 = 0;
+	public static double aporteCuotaDiariaModelo4 = 0;
+	
+	//ventas registradas
 	public static int indexModeloVenta1 = 0;
 	public static String valorModeloVenta1 = "";
 	public static int cantidadVenta1 = 0;
@@ -97,9 +123,61 @@ public class Tienda extends JFrame implements ActionListener {
 	public static int cantidadVenta4 = 0;
 	public static double importeTotalVenta4 = 0;
 	
-	SEGUIR CREAMDP  VARIABLES PARA POSIBLES VENTAS
+	public static int indexModeloVenta5 = 0;
+	public static String valorModeloVenta5 = "";
+	public static int cantidadVenta5 = 0;
+	public static double importeTotalVenta5 = 0;
 	
+	public static int indexModeloVenta6 = 0;
+	public static String valorModeloVenta6 = "";
+	public static int cantidadVenta6 = 0;
+	public static double importeTotalVenta6 = 0;
 	
+	public static int indexModeloVenta7 = 0;
+	public static String valorModeloVenta7 = "";
+	public static int cantidadVenta7 = 0;
+	public static double importeTotalVenta7 = 0;
+	
+	public static int indexModeloVenta8 = 0;
+	public static String valorModeloVenta8 = "";
+	public static int cantidadVenta8 = 0;
+	public static double importeTotalVenta8 = 0;
+	
+	public static int indexModeloVenta9 = 0;
+	public static String valorModeloVenta9 = "";
+	public static int cantidadVenta9 = 0;
+	public static double importeTotalVenta9 = 0;
+	
+	public static int indexModeloVenta10 = 0;
+	public static String valorModeloVenta10 = "";
+	public static int cantidadVenta10 = 0;
+	public static double importeTotalVenta10 = 0;
+	
+	public static int indexModeloVenta11 = 0;
+	public static String valorModeloVenta11 = "";
+	public static int cantidadVenta11 = 0;
+	public static double importeTotalVenta11 = 0;
+	
+	public static int indexModeloVenta12 = 0;
+	public static String valorModeloVenta12 = "";
+	public static int cantidadVenta12 = 0;
+	public static double importeTotalVenta12 = 0;
+	
+	public static int indexModeloVenta13 = 0;
+	public static String valorModeloVenta13 = "";
+	public static int cantidadVenta13 = 0;
+	public static double importeTotalVenta13 = 0;
+	
+	public static int indexModeloVenta14 = 0;
+	public static String valorModeloVenta14 = "";
+	public static int cantidadVenta14 = 0;
+	public static double importeTotalVenta14 = 0;
+	
+	public static int indexModeloVenta15 = 0;
+	public static String valorModeloVenta15 = "";
+	public static int cantidadVenta15 = 0;
+	public static double importeTotalVenta15 = 0;
+		
 	//Declaración de variables
 	private JMenuBar barraMenu;
 	private JMenu opcionArchivo;
@@ -242,8 +320,49 @@ public class Tienda extends JFrame implements ActionListener {
 			venderCeramico.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
 	        //ventana interna en la ventana principal
 	        dp.add(venderCeramico);	
-		}
-		
+		}else if(arg0.getSource() == opcionItemGReportes) {
+			GenerarReporte generarReporte = new GenerarReporte();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = generarReporte.getSize();
+			generarReporte.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(generarReporte);	
+		}else if(arg0.getSource() == opcionItemCDescuento) {
+			ConfDescuentos confDescuentos = new ConfDescuentos();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = confDescuentos.getSize();
+			confDescuentos.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(confDescuentos);	
+		}else if(arg0.getSource() == opcionItemCObsequios) {
+			ConfObsequios confObsequios = new ConfObsequios();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = confObsequios.getSize();
+			confObsequios.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(confObsequios);	
+		}else if(arg0.getSource() == opcionItemCCantOptima) {
+			ConfCantOptima confCantOptima = new ConfCantOptima();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = confCantOptima.getSize();
+			confCantOptima.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(confCantOptima);	
+		}else if(arg0.getSource() == opcionItemCCuotaDiaria) {
+			ConfCuotaDiaria confCuotaDiaria = new ConfCuotaDiaria();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = confCuotaDiaria.getSize();
+			confCuotaDiaria.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(confCuotaDiaria);	
+		}else if(arg0.getSource() == opcionItemAcercaTienda) {
+			AcercaTienda acercaTienda = new AcercaTienda();				
+			//centrando ventana interna			
+			tamanoVentanaInterna = acercaTienda.getSize();
+			acercaTienda.setLocation((tamanoVentanaPrincipal.width - tamanoVentanaInterna.width)/2, (tamanoVentanaPrincipal.height- tamanoVentanaInterna.height)/2);
+	        //ventana interna en la ventana principal
+	        dp.add(acercaTienda);	
+		}			
 
 	}	
 	
